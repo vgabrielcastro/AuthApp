@@ -1,14 +1,87 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# App Login com React Native CLI
 
-# Getting Started
+Um aplicativo de login desenvolvido com React Native CLI, NativeBase, integração nativa com Swift/Kotlin, Zustand, e `json-server` para simulação de API.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## 🚀 Tecnologias
 
-## Step 1: Start Metro
+- React Native CLI
+- NativeBase
+- Zustand
+- React Hook Form
+- AsyncStorage
+- json-server
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## 📋 Pré-requisitos
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+Antes de iniciar, você precisa ter instalado:
+
+- Node.js
+- npm ou yarn
+- Android Studio (com Android SDK) ou Xcode (para iOS)
+- json-server (instalado globalmente)
+
+## 🔧 Instalação
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/vgabrielcastro/Auth-Native
+cd auth-native
+```
+
+2. Instale as dependências:
+
+```bash
+npm install
+# ou
+yarn install
+```
+
+3. Instale o json-server globalmente:
+
+```bash
+npm install -g json-server
+```
+
+ou
+
+```bash
+yarn global add json-server
+```
+
+## 📝 Configuração do IP
+
+Se você estiver usando um dispositivo físico, é necessário configurar o IP correto no arquivo `services/api.ts`:
+
+1. Descubra seu IP local:
+
+   - Windows: `ipconfig` no terminal
+   - Mac/Linux: `ifconfig` no terminal
+
+2. Atualize o arquivo `services/api.ts` com seu IP:
+
+```typescript
+const api = axios.create({
+  baseURL: 'http://SEU_IP_LOCAL:3000',
+  timeout: 10000,
+});
+```
+
+## ⚠️ Observações Importantes
+
+1. Certifique-se que seu dispositivo móvel está na mesma rede Wi-Fi que seu computador
+2. O json-server deve estar rodando antes de iniciar o aplicativo
+3. Se estiver usando um dispositivo físico, verifique se o firewall não está bloqueando a porta 3000
+
+## 🚀 Como executar
+
+1. Primeiro, inicie o json-server em um terminal:
+
+```bash
+yarn api
+```
+
+2. Em outro terminal, inicie o Metro:
 
 ```sh
 # Using npm
@@ -18,11 +91,7 @@ npm start
 yarn start
 ```
 
-## Step 2: Build and run your app
-
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
+3. Em outro terminal, Build and run seu app:
 
 ```sh
 # Using npm
@@ -32,66 +101,30 @@ npm run android
 yarn android
 ```
 
-### iOS
+## 🔑 Credenciais de Teste
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+O sistema já vem com um usuário de teste configurado:
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+- Email: vini.teste@gmail.com
+- Senha: 12345
 
-```sh
-bundle install
+## 📦 Banco de Dados
+
+O arquivo `db.json` contém os dados simulados do banco de dados. Você pode adicionar mais usuários editando este arquivo:
+
+```json
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Vini Gabriel",
+      "email": "vini.teste@gmail.com",
+      "password": "12345"
+    }
+  ]
+}
 ```
 
-Then, and every time you update your native dependencies, run:
+## 📄 Licença
 
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.

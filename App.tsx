@@ -1,7 +1,8 @@
 import { GluestackUIProvider } from '@gluestack-ui/themed';
-import { ToastProvider } from '@gluestack-ui/toast';
 import React from 'react';
 import { StatusBar } from 'react-native';
+import Toast from 'react-native-toast-message';
+import { toastConfig } from './src/components/ui/toastConfig';
 import { AuthProvider } from './src/context/AuthContext';
 import { useThemeStore } from './src/hooks/themeStore';
 import AppRoutes from './src/routes/AppRoutes';
@@ -13,15 +14,19 @@ function App(): React.JSX.Element {
 
   return (
     <GluestackUIProvider config={theme}>
-      <ToastProvider>
-        <AuthProvider>
-          <StatusBar
-            barStyle={isDark ? 'light-content' : 'dark-content'}
-            backgroundColor={theme.colors.background}
-          />
-          <AppRoutes />
-        </AuthProvider>
-      </ToastProvider>
+      <AuthProvider>
+        <StatusBar
+          barStyle={isDark ? 'light-content' : 'dark-content'}
+          backgroundColor={theme.colors.background}
+        />
+        <AppRoutes />
+        <Toast
+          config={toastConfig}
+          position="top"
+          topOffset={50}
+          bottomOffset={30}
+        />
+      </AuthProvider>
     </GluestackUIProvider>
   );
 }

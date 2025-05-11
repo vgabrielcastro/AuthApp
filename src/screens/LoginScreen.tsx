@@ -37,7 +37,7 @@ export default function LoginScreen() {
       Toast.show({
         type: 'success',
         text1: 'Login realizado com sucesso',
-        text2: 'Você entrou no sistema 🎉',
+        text2: 'Você entrou no App 🎉',
       });
     } catch (error: any) {
       let errorMessage = 'Erro ao fazer login';

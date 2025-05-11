@@ -1,6 +1,7 @@
 import { GluestackUIProvider } from '@gluestack-ui/themed';
 import React from 'react';
 import { StatusBar } from 'react-native';
+import AppRoutes from './src/routes/AppRoutes';
 import { useThemeStore } from './src/store/themeStore';
 import { useAppTheme } from './src/themes';
 
@@ -14,6 +15,7 @@ function App(): React.JSX.Element {
         barStyle={isDark ? 'light-content' : 'dark-content'}
         backgroundColor={theme.colors.background}
       />
+      <AppRoutes />
     </GluestackUIProvider>
   );
 }

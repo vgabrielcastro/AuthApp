@@ -14,7 +14,7 @@ import {
 } from '@gluestack-ui/themed';
 import React, {useState} from 'react';
 import {Controller} from 'react-hook-form';
-import {useThemeStore} from '../store/themeStore';
+import {useThemeStore} from '../hooks/themeStore';
 import {useAppTheme} from '../themes';
 import {LoginFormProps} from '../types/interface.login';
 

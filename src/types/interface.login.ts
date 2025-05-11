@@ -6,3 +6,8 @@ export interface LoginFormProps {
   onSubmit: () => void;
   isLoading: boolean;
 }
+
+export interface LoginFormData {
+  email: string;
+  password: string;
+}

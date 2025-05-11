@@ -1,21 +1,15 @@
-import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import LoginScreen from '../screens/LoginScreen';
-import { RootStackParamList } from '../types/type';
-
-const Stack = createNativeStackNavigator<RootStackParamList>();
+import React from 'react';
+import { useAuth } from '../context/AuthContext';
+import AppStack from './AppStack';
+import AuthStack from './AuthStack';
 
 export default function AppRoutes() {
+  const {user} = useAuth();
+
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen
-          name="Login"
-          component={LoginScreen}
-          options={{ headerShown: false }}
-        />
-      </Stack.Navigator>
+      {user ? <AppStack /> : <AuthStack />}
     </NavigationContainer>
   );
 }

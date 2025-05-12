@@ -10,6 +10,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		41A208012DD1557B007B737D /* OSVersionModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A208002DD1557A007B737D /* OSVersionModule.swift */; };
 		41A208042DD155EE007B737D /* OSVersionModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A208032DD155ED007B737D /* OSVersionModule.m */; };
+		41C217432DD18C080021947A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41C217422DD18C080021947A /* Images.xcassets */; };
 		73EA75BDC9DC127B53A1396B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -25,6 +26,7 @@
 		41A208002DD1557A007B737D /* OSVersionModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSVersionModule.swift; sourceTree = "<group>"; };
 		41A208022DD155EC007B737D /* AuthNative-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AuthNative-Bridging-Header.h"; sourceTree = "<group>"; };
 		41A208032DD155ED007B737D /* OSVersionModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OSVersionModule.m; sourceTree = "<group>"; };
+		41C217422DD18C080021947A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-AuthNative.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AuthNative.release.xcconfig"; path = "Target Support Files/Pods-AuthNative/Pods-AuthNative.release.xcconfig"; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = AuthNative/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = AuthNative/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				41C217422DD18C080021947A /* Images.xcassets */,
 				41A208002DD1557A007B737D /* OSVersionModule.swift */,
 				41A208032DD155ED007B737D /* OSVersionModule.m */,
 				13B07FAE1A68108700A75B9A /* AuthNative */,
@@ -167,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				41C217432DD18C080021947A /* Images.xcassets in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				73EA75BDC9DC127B53A1396B /* PrivacyInfo.xcprivacy in Resources */,
 			);
@@ -407,7 +411,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -487,7 +494,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;

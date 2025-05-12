@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NativeModules } from "react-native";
+import { Platform, NativeModules } from "react-native";
 
 const { DeviceName, OSVersionModule } = NativeModules;
 
@@ -25,8 +25,13 @@ const useDeviceInformation = () => {
 
   const fetchOSVersion = async () => {
     try {
-      const version = await OSVersionModule.getOSVersion();
-      setOsVersion(version);
+      if (OSVersionModule && OSVersionModule.getOSVersion) {
+        const version = await OSVersionModule.getOSVersion();
+        setOsVersion(version);
+      } else {
+        const version = Platform.Version.toString();
+        setOsVersion(version);
+      }
     } catch {
       setOsVersion("Erro ao obter versão");
     }

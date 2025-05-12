@@ -12,7 +12,8 @@ import UIKit
 class OSVersionModule: NSObject {
 
     @objc
-    static func getOSVersion() -> String {
-        return UIDevice.current.systemVersion
+    func getOSVersion(_ resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) {
+        let version = UIDevice.current.systemVersion
+        resolve(version)
     }
 }

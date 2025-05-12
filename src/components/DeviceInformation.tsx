@@ -2,10 +2,11 @@ import { Box, Text } from '@gluestack-ui/themed';
 import React from 'react';
 import { useAppTheme } from '../themes';
 import useDeviceInformation from '../hooks/nativeInfo';
+import { Platform } from 'react-native';
 
 export default function DeviceInformation() {
   const { deviceName, osVersion } = useDeviceInformation();
-  const {theme} = useAppTheme();
+  const { theme } = useAppTheme();
 
   return (
     <Box
@@ -19,8 +20,14 @@ export default function DeviceInformation() {
       <Text fontSize={18} fontWeight="600" marginBottom={12} color={theme.colors.text}>
         Informações do Dispositivo 📱
       </Text>
-      <Text style={{ color: theme.colors.text }}>Nome: {deviceName}</Text>
-      {osVersion && <Text style={{ color: theme.colors.text }}>Versão do Sistema: {osVersion}</Text>}
+      {Platform.OS === "android" && deviceName && (
+        <Text style={{ color: theme.colors.text }}>Nome: {deviceName}</Text>
+      )}
+      {osVersion && (
+        <Text style={{ color: theme.colors.text }}>
+          Versão do Sistema {Platform.OS === "ios" ? "iOS" : "Android"}: {osVersion}
+        </Text>
+      )}
     </Box>
   );
 }

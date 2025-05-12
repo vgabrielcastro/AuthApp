@@ -1,29 +1,20 @@
 platform :ios, '15.1'
 
-require Pod::Executable.execute_command('node', ['-p',
-  'require.resolve(
-    "react-native/scripts/react_native_pods.rb",
-    {paths: [process.argv[1]]},
-  )', __dir__]).strip
+require_relative '../node_modules/react-native/scripts/react_native_pods'
 
 prepare_react_native_project!
 use_frameworks! :linkage => :static
 
-target 'AuthNative' do
+target 'AuthNative' do # Troque pelo nome do seu target iOS
   config = use_native_modules!
 
   use_react_native!(
-    :path => config[:reactNativePath],
-    :app_path => "#{Pod::Config.instance.installation_root}/.."
+    :path => config[:reactNativePath]
   )
 
   post_install do |installer|
-    react_native_post_install(
-      installer,
-      config[:reactNativePath],
-      :mac_catalyst_enabled => false
-    )
-
+    react_native_post_install(installer, config[:reactNativePath])
+    
     installer.pods_project.targets.each do |target|
       target.build_configurations.each do |config|
         config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'

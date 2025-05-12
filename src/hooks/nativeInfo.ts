@@ -14,6 +14,8 @@ const useDeviceInformation = () => {
     fetchDeviceInfo();
   }, []);
 
+  
+
   const fetchDeviceName = async () => {
     try {
       const name = await DeviceName.getDeviceName();

@@ -12,3 +12,4 @@
 RCT_EXTERN_METHOD(getOSVersion:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 @end
+

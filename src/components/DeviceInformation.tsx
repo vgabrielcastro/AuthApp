@@ -28,6 +28,8 @@ export default function DeviceInformation() {
           Versão do Sistema {Platform.OS === "ios" ? "iOS" : "Android"}: {osVersion}
         </Text>
       )}
+
+      
     </Box>
   );
 }

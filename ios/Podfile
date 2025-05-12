@@ -11,6 +11,7 @@ target 'AuthNative' do # Troque pelo nome do seu target iOS
   use_react_native!(
     :path => config[:reactNativePath]
   )
+  
 
   post_install do |installer|
     react_native_post_install(installer, config[:reactNativePath])

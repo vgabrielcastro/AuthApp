@@ -16,6 +16,7 @@ function App(): React.JSX.Element {
   useEffect(() => {
     SplashScreen.hide();
   }, []);
+  
 
   return (
     <GluestackUIProvider config={theme}>

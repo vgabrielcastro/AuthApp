@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { Platform, NativeModules } from "react-native";
+import { NativeModules, Platform } from "react-native";
 
-const { DeviceName, OSVersionModule } = NativeModules;
+const {DeviceName, OSVersionModule} = NativeModules;
 
 const useDeviceInformation = () => {
-  const [deviceName, setDeviceName] = useState("Carregando...");
+  const [deviceName, setDeviceName] = useState('Carregando...');
   const [osVersion, setOsVersion] = useState<string | null>(null);
 
   useEffect(() => {
@@ -14,14 +14,12 @@ const useDeviceInformation = () => {
     fetchDeviceInfo();
   }, []);
 
-  
-
   const fetchDeviceName = async () => {
     try {
       const name = await DeviceName.getDeviceName();
       setDeviceName(name);
     } catch {
-      setDeviceName("Erro ao obter nome");
+      setDeviceName('Erro ao obter nome');
     }
   };
 
@@ -35,11 +33,11 @@ const useDeviceInformation = () => {
         setOsVersion(version);
       }
     } catch {
-      setOsVersion("Erro ao obter versão");
+      setOsVersion('Erro ao obter versão');
     }
   };
 
-  return { deviceName, osVersion };
+  return {deviceName, osVersion};
 };
 
 export default useDeviceInformation;

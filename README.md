@@ -124,6 +124,10 @@ O arquivo `db.json` contém os dados simulados do banco de dados. Você pode adi
   ]
 }
 ```
+App Demo Ios: 
+
+![App Demo](https://i.imgur.com/OgHexpN.gif)
+
 
 ## 📄 Licença
 
